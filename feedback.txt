@@ -1,0 +1,9 @@
+Negative FeedBack:
+1- The description was not clear enough. There were errors with test cases in the description.
+
+Positive FeedBacks:
+1- The project was fun.
+2- execute_print_actions was great to see what's happening.
+
+A comment:
+-Since Prolog was new to us, I didn't know how long it would take to implement the project. It took me around 24-25 hours to complete. 
