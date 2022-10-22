@@ -1,18 +1,14 @@
-% Rukiye Aslan
-% 20194000
-% compiling: yes
-% complete: yes
+
 :- ['cmpecraft.pro'].
 
 :- init_from_map.
 
-% 10 points
+
 % manhattan_distance(+A, +B, -Distance) :- .
 manhattan_distance([H1|T1], [H2|T2], Distance) :-
     Distance is abs(H2-H1) + abs(T2-T1).
 
 
-% 10 points
 % minimum_of_list(+List, -Minimum) :- .
 minimum_of_list([Y], Y).
 
@@ -20,8 +16,6 @@ minimum_of_list([H|T], Minimum) :-
     minimum_of_list(T, Y),
     Minimum is min(H,Y).
 
-
-% 10 points
 %first find all objects of specified type.
 %List all distances to these objects.
 %get the one with min distance.
@@ -59,7 +53,7 @@ find_nearest_type(State, ObjectType, ObjKey, Object, Distance):-
     get_dict(ObjKey, ObjectDict, Object).           %get the object
 
 
-% 10 points
+
 %navigate to(+State, +X, +Y, -ActionList, +DepthLimit)
 %find X distance and Y distance to the specified location from the location of agent.
 %get actions accordingly.
@@ -113,7 +107,7 @@ navigate_to(State, X, Y, ActionList, DepthLimit) :-
     ),                                    
     append(Lx,Ly,ActionList).
   
-% 10 points
+
 % chop_nearest_tree(+State, -ActionList) :- .
 %First find nearest tree. Get its location. Navigate to that location and chop it.
 chop_nearest_tree(State,ActionList):-
@@ -127,7 +121,7 @@ chop_nearest_tree(State,ActionList):-
     append(Action1, [left_click_c,left_click_c,left_click_c,left_click_c], ActionList).
     
     
-% 10 points
+
 % mine_nearest_stone(+State, -ActionList) :- .
 %First find nearest stone. Get its location. Navigate to that location and mine it.
 mine_nearest_stone(State, ActionList) :-
@@ -140,7 +134,7 @@ mine_nearest_stone(State, ActionList) :-
     navigate_to(State,Ox,Oy,Action1,Limit),
     append(Action1, [left_click_c,left_click_c,left_click_c,left_click_c], ActionList).
 
-% 10 points
+
 % gather_nearest_food(+State, -ActionList) :- .
 %First find nearest food. Get its location. Navigate to that location and eat it.
 gather_nearest_food(State, ActionList) :-
@@ -153,7 +147,7 @@ gather_nearest_food(State, ActionList) :-
     navigate_to(State,Ox,Oy,Action1,Limit),
     append(Action1, [left_click_c], ActionList).
 
-% 10 points
+
 % collect_requirements(+State, +ItemType, -ActionList) :- .
 collect_stick(State, StickList):-
     chop_nearest_tree(State,StickList),
@@ -192,7 +186,7 @@ collect_requirements(State, ItemType, ActionList) :-
     ).
 
 
-% 5 points
+
 % find_castle_location(+State, -XMin, -YMin, -XMax, -YMax) :- .
 exists(tree).
 exists(stone).
@@ -265,7 +259,7 @@ find_castle_location(State, XMin, YMin, XMax, YMax) :-
     x_first(1,1, State, XMin, YMin, XMax, YMax, W, H).
 
 
-% 15 points
+
 % make_castle(+State, -ActionList) :- .
 %Mine stones to acquire the necessary requirements. Execute actions to get new states.
 %Find castle location. Go to the center of suitable location and and place cobblestones.
